@@ -1,0 +1,24 @@
+stages:
+  preprocessing:
+    cmd: python prepare_dataset.py
+    deps:
+    - data/iris.csv
+    - prepare_dataset.py
+    outs:
+    - data/test/iris_test.csv
+    - data/train/iris_train.csv
+  kmeans_train:
+    cmd: python kmeans/kmeans.py
+    deps:
+    - data/test/iris_test.csv
+    - data/train/iris_train.csv
+    - kmeans/kmeans.py
+    outs:
+    - kmeans/predict.txt
+  evaluate:
+    cmd: python evaluate.py
+    deps:
+    - data/test/iris_test.csv
+    - evaluate.py
+    metrics:
+    - metrics.txt
