@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  preprocessing:
+    cmd: python prepare_dataset.py
+    deps:
+    - path: data/iris.csv
+      md5: 8215afc33f59c42a868782d853fa8200
+      size: 4607
+    - path: prepare_dataset.py
+      md5: 02f5553b4240dff1c6e1ceae26891ecd
+      size: 703
+    outs:
+    - path: data/test/iris_test.csv
+      md5: fe55ea60b10d748eb11e75d9d50ec529
+      size: 1059
+    - path: data/train/iris_train.csv
+      md5: 5da922502f9464b7b7bd58cb40e4fb71
+      size: 2397
