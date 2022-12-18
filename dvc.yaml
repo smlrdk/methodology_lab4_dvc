@@ -15,12 +15,22 @@ stages:
     - k-means/k-means.py
     outs:
     - k-means/predict.txt
+  dtree_train:
+    cmd: python dtree/dtree.py
+    deps:
+    - data/test/iris_test.csv
+    - data/train/iris_train.csv
+    - dtree/dtree.py
+    outs:
+    - dtree/predict.txt
   eval:
     cmd: python evaluate.py
     deps:
-    - data/test/iris_test.csv
-    - evaluate.py
-    - k-means/k-means.py
+    # - data/test/iris_test.csv
+    # - evaluate.py
+    # - k-means/k-means.py
     - k-means/predict.txt
+    # - dtree/dtree.py
+    - dtree/predict.txt
     metrics:
     - metrics.txt
