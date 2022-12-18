@@ -20,6 +20,6 @@ y_pred = kmeans.predict(X_test).tolist()
 
 # параметр mode = 'w' значит "обрежьте файл до нулевой длины или создайте текстовый файл 
 # для записи2. Поток располагается в начале файла.
-with open('kmeans/predict.txt', 'w') as file:
+with open('k-means/predict.txt', 'w') as file:
     for el in y_pred:
         file.write(f"{el} \n")

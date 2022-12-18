@@ -8,17 +8,19 @@ stages:
     - data/test/iris_test.csv
     - data/train/iris_train.csv
   kmeans_train:
-    cmd: python kmeans/kmeans.py
+    cmd: python k-means/k-means.py
     deps:
     - data/test/iris_test.csv
     - data/train/iris_train.csv
-    - kmeans/kmeans.py
+    - k-means/k-means.py
     outs:
-    - kmeans/predict.txt
-  evaluate:
+    - k-means/predict.txt
+  eval:
     cmd: python evaluate.py
     deps:
     - data/test/iris_test.csv
     - evaluate.py
+    - k-means/k-means.py
+    - k-means/predict.txt
     metrics:
     - metrics.txt

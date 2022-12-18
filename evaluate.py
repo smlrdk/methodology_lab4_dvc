@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score
 y_test = pd.read_csv('data/test/iris_test.csv')['class'].to_numpy().tolist()
 
 kmeans_pred = list()
-with open('kmeans/predict.txt', 'r') as file:
+with open('k-means/predict.txt', 'r') as file:
     for line in file:
         kmeans_pred.append(int(line))
 
@@ -18,6 +18,6 @@ with open('kmeans/predict.txt', 'r') as file:
 kmeans_report = accuracy_score(y_test, kmeans_pred)
 
 with open('metrics.txt', 'w') as file:
-    file.write(f"kmeans acc: {kmeans_report}")
+    file.write(f"k-means acc: {kmeans_report}")
     # file.write("\n")
     # file.write(f"dtree acc: {dtree_report}")
