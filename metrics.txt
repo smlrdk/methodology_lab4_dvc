@@ -1,0 +1,2 @@
+k-means acc: 0.9777777777777777
+dtree acc: 1.0
